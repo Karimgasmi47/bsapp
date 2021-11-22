@@ -1,0 +1,1 @@
+fos.Router.setData({"base_url":"","routes":{"ticket_new":{"tokens":[["text","\/ticket\/new"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":["GET","POST"],"schemes":[]}},"prefix":"","host":"localhost","port":"","scheme":"http","locale":[]});

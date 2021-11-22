@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="grid grid-cols-11 gap-4 bg-">
+        <div class="col-start-5 col-span-3">
+            <h4 class="text-3xl font-normal leading-normal mt-0 mb-2 text-gray-800 text-center">
+                Nouveau ticket
+            </h4>
+            {{ form_start(form) }}
+            {{ form_row(form.title, {
+                row_class: 'pb-2',
+                label_class: 'sr-only',
+                error_item_class: 'text-red-700',
+                widget_class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm',
+                widget_disabled_class: 'border-dashed text-gray-200',
+                widget_errors_class: 'border-double border-red-500 bg-red-50',
+            }) }}
+
+            {{ form_row(form.description, {
+                row_class: 'pb-2',
+                label_class: 'sr-only',
+                error_item_class: 'text-red-700',
+                widget_class: 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm',
+                widget_disabled_class: 'border-dashed text-gray-200',
+                widget_errors_class: 'border-double border-red-500 bg-red-50',
+            }) }}
+
+            {{ form_row(form.type, {
+                row_class: 'pb-3',
+                label_class: 'inline-block ml-2 text-gray-700',
+            }) }}
+
+            {{ form_row(form.priority, {
+                row_class: 'pb-3',
+                label_class: 'inline-block ml-2 text-gray-700',
+            }) }}
+
+            <div>
+                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                            <i class="fas fa-save"></i>
+                        </span>
+                    Enregistrer
+                </button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

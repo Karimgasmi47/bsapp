@@ -1,0 +1,20 @@
+{% macro generate(issue) %}
+<div class="bg-blue w-full p-2 flex justify-center font-sans">
+    <div class="rounded bg-red-100 w-64 p-2">
+        <div class="text-sm mt-2">
+            <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                {{ issue.title }}
+            </div>
+
+            <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                {{ issue.type.name }} | {{ issue.status.name }} | {{ issue.priority.name }}
+            </div>
+
+            <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                {{ issue.description }}
+                    <img src="https://www.bluesquare.io/static/images/logo.png" class="rounded-full h-7 w-auto" />
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

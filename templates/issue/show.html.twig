@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% import 'component/macro/_card.html.twig' as card_macro %}
+
+{% block title %}Issue{% endblock %}
+
+{% block body %}
+    <div class="bg-blue w-full p-2 flex justify-center font-sans">
+        <div class="rounded bg-red-100 w-64 p-2">
+            <div class="text-sm mt-2">
+                <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    {{ issue.title }}
+                </div>
+
+                <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    {{ issue.type.name }} | {{ issue.status.name }} | {{ issue.priority.name }}
+                </div>
+
+                <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
+                    {{ issue.description }}
+                    <img src="https://www.bluesquare.io/static/images/logo.png" class="rounded-full h-7 w-auto" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="bg-blue w-full p-2 flex justify-center font-sans">Activité</span>
+
+    {% for comment in comments %}
+        <div class="bg-blue w-full p-2 flex justify-center font-sans">
+            Le {{ comment.updatedAt|date("d/m/Y") }} à {{ comment.updatedAt|date('H:i:s') }} <br> {{ comment.content }}
+        </div>
+    {% endfor %}
+    <div class="bg-blue w-full p-2 flex justify-center font-sans">
+
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                Commentaire
+            </label>
+            <input id="commentaire" data-issue="{{ issue.id }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" placeholder="commentaire">
+        </div>
+        <button id="submit_com" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Commenter
+        </button>
+    </div>
+
+{% endblock %}
+

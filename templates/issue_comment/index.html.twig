@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IssueComment index{% endblock %}
+
+{% block body %}
+    <h1>IssueComment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for issue_comment in issue_comments %}
+            <tr>
+                <td>{{ issue_comment.id }}</td>
+                <td>{{ issue_comment.content }}</td>
+                <td>{{ issue_comment.updatedAt ? issue_comment.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('issue_comment_show', {'id': issue_comment.id}) }}">show</a>
+                    <a href="{{ path('issue_comment_edit', {'id': issue_comment.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('issue_comment_new') }}">Create new</a>
+{% endblock %}
